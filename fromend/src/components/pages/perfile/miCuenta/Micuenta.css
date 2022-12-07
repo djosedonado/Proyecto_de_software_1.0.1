@@ -1,0 +1,34 @@
+.container_img{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.foto_perfil{
+    width: 250px;
+    height: 300px;
+    margin-right: auto;
+
+}
+.caja_select{
+    width: 450px;
+    height: 55.5px;
+}
+
+.selector{
+    margin:auto;
+    width: 330px;
+}
+
+.boton_selector{
+    margin:auto;
+}
+
+.datos_perfile{
+    margin:auto;
+    width: 330px;
+}
+
+#imgPerfile{
+    width: 500px;
+    height: 250px;
+}
