@@ -1,3 +1,5 @@
+CREATE SCHEMA `nutrisoft` ;
+
 use nutrisoft;
 
 CREATE TABLE `nutrisoft`.`roles` (
@@ -38,10 +40,6 @@ CREATE TABLE `nutrisoft`.`persona` (
   FOREIGN KEY (idMenbrecia)references menbrecia(idMenbrecia)
 );
 
-INSERT INTO persona(nombre,apellido,email,pass,sexo,fechaN,idRoles,idMenbrecia) 
-VALUES ('DANILO','DONADO','DANILO@GMAIL.COM','DONADO1234','M','12-04-1999',1,1);
-
-
 CREATE TABLE `nutrisoft`.`tarjeta` (
   `idTarjeta` int NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NULL NULL,
@@ -52,11 +50,6 @@ CREATE TABLE `nutrisoft`.`tarjeta` (
   PRIMARY KEY (idTarjeta),
   FOREIGN KEY (email)references persona(email)
 );
-
-
-INSERT INTO tarjeta(email,numero,nombre,cvv,fechaExpiracion) 
-VALUES ('DANILO@GMAIL.COM','1234231421421456','juan camilo vargas','124','12/34');
-
 
 CREATE TABLE `nutrisoft`.`img` (
   `id` INT NOT NULL AUTO_INCREMENT,

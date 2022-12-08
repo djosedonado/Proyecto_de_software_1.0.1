@@ -14,13 +14,14 @@ ruta.post('/basicos', (req, res) => {
         console.log("-----------------------")
         const datos = {
             email: req.body.email,
-            peso: req.body.peso,
-            altura: req.body.altura,
-            presion: req.body.presion,
-            frecuenciaC: req.body.frecuenciaCardiaca,
-            frecuenciaR: req.body.frecuenciaRespiratoria,
+            peso: parseFloat(req.body.peso),
+            altura: parseFloat(req.body.altura),
+            presion: parseFloat(req.body.presion),
+            frecuenciaC: parseFloat(req.body.frecuenciaCardiaca),
+            frecuenciaR: parseFloat(req.body.frecuenciaRespiratoria),
             alergias: req.body.enfermedades
         }
+        console.log(datos)
         conn.query('INSERT INTO datosbasicos set ?', datos, (err, rows) => {
             if (err) return res.send(err)
             console.log("Registro exitoso")

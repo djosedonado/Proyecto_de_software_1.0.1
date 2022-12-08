@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import imgSession from './img/user.png';
-import imgFacebook from './img/facebook.png';
-import imgGoogle from './img/Google.png';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
+import './Login.css'
 //import axios from 'axios';
 
 export function Login() {
@@ -12,7 +11,7 @@ export function Login() {
         email: '',
         password: ''
     })
-    const { login, loginWithGoogle, resetPassword } = useAuth();
+    const { login,resetPassword } = useAuth();
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -35,16 +34,6 @@ export function Login() {
             setError(error.message);
         }
     };
-
-    const handleGoogleSignin = async () => {
-        try {
-            await loginWithGoogle();
-            navigate("/");
-        } catch (error) {
-            setError(error.message);
-        }
-    };
-
     const handleResetPassword = async (e) => {
         e.preventDefault();
         if (!user.email) return setError("Escriba un correo electrónico para restablecer la contraseña");
@@ -66,6 +55,9 @@ export function Login() {
                 </div>
                 {/* Columna de sission */}
                 <div className='col'>
+                    <div className='text-center' >
+                        <p className='alerta_err'>{error}</p>
+                    </div>
                     <div className="text-center">
                         <img src={imgSession} alt="user" width="64" />
                     </div>
@@ -91,37 +83,6 @@ export function Login() {
                             <span><Link onClick={handleResetPassword}>Recuperar Password</Link></span>
                         </div>
                     </form>
-                    {/* Inicio de session por aplicaciones google y facebook */}
-                    {/*
-                    <div className='container w-100 my-5'>
-                        <div className='row text-center'>
-                            <div className='col'>
-                                <button className='btn btn-outline-primary w-100 my-1'>
-                                    <div className='row align-items-center'>
-                                        <div className="col-2">
-                                            <img src={imgFacebook} alt="facebook" width="32" />
-                                        </div>
-                                        <div className='col-2 text-center'>
-                                            Facebook
-                                        </div>
-                                    </div>
-                                </button>
-                            </div>
-                            <div className='col'>
-                                <button className='btn btn-outline-danger w-100 my-1' onClick={handleGoogleSignin}>
-                                    <div className='row align-items-center'>
-                                        <div className="col-2">
-                                            <img src={imgGoogle} alt="google" width="32" />
-                                        </div>
-                                        <div className='col-2 text-center'>
-                                            Google
-                                        </div>
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    */}
                 </div>
             </div>
         </div>

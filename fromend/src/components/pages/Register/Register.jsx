@@ -3,18 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../Register/Register.css";
 import Logo from '../../img/LogoHeader.png';
 
-const validaciones = () => {
-    
-    const password = document.getElementById("pass")
-    const form = document.getElementById("formulario")
-    form.addEventListener("submit", (e) => {
-        e.preventDefault()
-        if(password.nodeValue.length <= 6){
-            alert("La contraseña debe tener mas de 6 digitos")
-        }
-    })
-}
-
 export function Register() {
     //validaciones()
     //const { signup } = useAuth();
@@ -46,7 +34,7 @@ export function Register() {
     let { nombre, apellido, email, pass, sexo, fechaN, fechaExpiracion } = user
     const handleSubmit = async () => {
         try {
-            //if (nombre === "" || apellido === '' || email === "" || pass === "" || sexo === "" || fechaN === "dd/mm/aaaa" || fechaExpiracion === "") return alert("Los campos estan vacios")
+            if (nombre === "" || apellido === '' || email === "" || pass === "" || sexo === "" || fechaN === "dd/mm/aaaa" || fechaExpiracion === "") return alert("Los campos estan vacios")
             const datosBasicos = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -62,7 +50,6 @@ export function Register() {
 
             //await signup(email,password)
             navigate("/");
-
         } catch (e) {
             setError(e.message);
             alert(error)
