@@ -9,6 +9,8 @@
 
 ##3: para que funcione el backend correctamente neesitas instalar mysql server y ejecutar los codigos de las tablas almacenado en la carpeta juto al backend y froend.
 
+### npm install o npm i
+
 ##4: ya creado todo porfavor ejecute los comando npm start para iniciar cada uno de los servicios de nodejs hacer esto ubicado en el fronend y en el backend.
 
 ##5: ya fanalizado estos pasos ya te debe correr perfectamente el aplicativo web.
