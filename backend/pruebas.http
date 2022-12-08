@@ -27,3 +27,8 @@ Content-Type: application/json
     "cvv": "123",
     "fechaExpiracion": "12/23"
 }
+
+
+###
+
+GET http://localhost:3001/datos/basicos/danilo@gmail.com HTTP/1.1

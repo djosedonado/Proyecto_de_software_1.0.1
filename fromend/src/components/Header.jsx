@@ -72,8 +72,7 @@ export function Header() {
     
                         <ul class="dropdown-menu">
                             <li><NavLink className="dropdown-item" to="/formrecolecciondatos">Recolecion de Datos</NavLink></li>
-                            <li><NavLink className="dropdown-item" to="/evaluar">Evaluar</NavLink></li>
-                            <li><NavLink className="dropdown-item" to="/xd">Consultar</NavLink></li>
+                            <li><NavLink className="dropdown-item" to="/Consulta">Consulta de Datos</NavLink></li>
                         </ul>
                     </div>
                     {/*---------------------------------------------- */}

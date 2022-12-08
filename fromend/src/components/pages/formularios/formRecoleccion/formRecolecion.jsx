@@ -5,7 +5,6 @@ import { useAuth } from "../../../../context/AuthContext";
 
 export function FormRecoleccion() {
     const { user } = useAuth();
-    const navigate = useNavigate();
     const [datos, setDatos] = useState({
         email: user.email,
         peso: "",

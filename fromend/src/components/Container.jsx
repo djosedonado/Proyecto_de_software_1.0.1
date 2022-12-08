@@ -12,7 +12,7 @@ import { Footer } from "./Footer";
 import { ProtectRoute } from '../components/Protect/ProtectRoute';
 import "./styles/Container.css"
 import { useAuth } from "../context/AuthContext";
-import { FormEvaluar } from "./pages/formularios/form_Evaluar/FormEvaluar";
+import { FormConsul } from "./pages/formularios/formConsulta/formConsul";
 
 
 export function Container() {
@@ -29,7 +29,7 @@ export function Container() {
                     <Route path="/AcercaDe" element={<AcercaDe />} />
                     <Route path="/Information" element={<Information />} />
                     <Route element={<ProtectRoute isAllowed={!!user} redirectTo="/formulario"/>}>
-                        <Route path="/evaluar" element={<FormEvaluar/>} />
+                        <Route path="/Consulta" element={<FormConsul/>} />
                         <Route path="/micuenta" element={<Micuenta />} />
                         <Route path="/formrecolecciondatos" element={<FormRecoleccion/>}/>
                     </Route>

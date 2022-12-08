@@ -7,8 +7,8 @@ const ruta = express.Router()
 
 
 ruta.post('/basicos', (req, res) => {
-    req.getConnection((err,conn) =>{
-        if(err) return res.send(err);
+    req.getConnection((err, conn) => {
+        if (err) return res.send(err);
         console.log("-----------------------")
         console.log(req.body)
         console.log("-----------------------")
@@ -21,10 +21,22 @@ ruta.post('/basicos', (req, res) => {
             frecuenciaR: req.body.frecuenciaRespiratoria,
             alergias: req.body.enfermedades
         }
-        conn.query('INSERT INTO datosbasicos set ?',datos,(err, rows) =>{
-            if(err) return res.send(err)
+        conn.query('INSERT INTO datosbasicos set ?', datos, (err, rows) => {
+            if (err) return res.send(err)
             console.log("Registro exitoso")
         })
+    })
+})
+
+ruta.get('/basicos/:email', (req, res) => {
+    req.getConnection((err, conn) => {
+        if (err) return res.send(err);
+        console.log(req.params)
+        conn.query("SELECT datosbasicos.id,persona.email,peso,altura,presion,frecuenciaC,frecuenciaR,alergias,sexo,fechaN FROM datosbasicos INNER JOIN persona ON datosbasicos.email=persona.email where persona.email=?"
+            , req.params.email, (err, rows) => {
+                if (err) return res.send(err)
+                res.send(rows)
+            })
     })
 })
 

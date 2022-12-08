@@ -30,7 +30,7 @@ CREATE TABLE `nutrisoft`.`persona` (
   `email` VARCHAR(45) NOT NULL,
   `pass` VARCHAR(45) NOT NULL,
   `sexo` VARCHAR(45) NOT NULL,
-  `fechaN` VARCHAR(45) NOT NULL,
+  `fechaN` DATE,
   `idRoles` INT NOT NULL,
   `idMenbrecia` INT NOT NULL,
   PRIMARY KEY (`email`),
