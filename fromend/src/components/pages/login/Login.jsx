@@ -92,6 +92,7 @@ export function Login() {
                         </div>
                     </form>
                     {/* Inicio de session por aplicaciones google y facebook */}
+                    {/*
                     <div className='container w-100 my-5'>
                         <div className='row text-center'>
                             <div className='col'>
@@ -120,6 +121,7 @@ export function Login() {
                             </div>
                         </div>
                     </div>
+                    */}
                 </div>
             </div>
         </div>

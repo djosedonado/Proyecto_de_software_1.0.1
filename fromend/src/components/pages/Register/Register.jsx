@@ -2,9 +2,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Register/Register.css";
 import Logo from '../../img/LogoHeader.png';
-//import { useAuth } from "../../../context/AuthContext";
+
+const validaciones = () => {
+    
+    const password = document.getElementById("pass")
+    const form = document.getElementById("formulario")
+    form.addEventListener("submit", (e) => {
+        e.preventDefault()
+        if(password.nodeValue.length <= 6){
+            alert("La contraseña debe tener mas de 6 digitos")
+        }
+    })
+}
 
 export function Register() {
+    //validaciones()
     //const { signup } = useAuth();
     const [user, setUser] = useState({
         nombre: "",
@@ -20,8 +32,6 @@ export function Register() {
         cvv: "",
         fechaExpiracion: ""
     });
-
-
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -33,10 +43,10 @@ export function Register() {
 
     }
 
-    let {  nombre, apellido, email, pass, sexo, fechaN, fechaExpiracion } = user
+    let { nombre, apellido, email, pass, sexo, fechaN, fechaExpiracion } = user
     const handleSubmit = async () => {
         try {
-            if ( nombre === "" || apellido === '' || email === "" || pass === "" || sexo === "" || fechaN === "dd/mm/aaaa" || fechaExpiracion === "") return alert("Los campos estan vacios")
+            //if (nombre === "" || apellido === '' || email === "" || pass === "" || sexo === "" || fechaN === "dd/mm/aaaa" || fechaExpiracion === "") return alert("Los campos estan vacios")
             const datosBasicos = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -45,15 +55,14 @@ export function Register() {
             fetch('http://localhost:3001/inform/register', datosBasicos)
                 .then(res => res.json())
                 .then(res => console.log(res))
-            
+
             fetch('http://localhost:3001/inform/register/tarjeta', datosBasicos)
                 .then(res => res.json())
                 .then(res => console.log(res))
-                
+
             //await signup(email,password)
-            alert("Registro Exitoso")
             navigate("/");
-            
+
         } catch (e) {
             setError(e.message);
             alert(error)
@@ -72,7 +81,7 @@ export function Register() {
                 {/*----------Inicio de la Columna del Formmulario------------------------- */}
                 <div className="col">
                     <h2>Datos Personales</h2>
-                    <form className="">
+                    <form className="formulario" id="formulario">
                         {/*------------ Nombre y Apellido ----------------------- */}
                         <div className="mb-2 row">
                             <div className="mb-2 col-5">
@@ -91,7 +100,7 @@ export function Register() {
                         </div>
                         <div className="mb-2 col-6">
                             <label htmlFor="password" className="form-label">Contraseña</label>
-                            <input type="password" className="form-control" name="pass" id="pass" onChange={handleChange} />
+                            <input type="password" className="form-control" name="pass" id="pass" onChange={handleChange} required/>
                         </div>
                         {/*----selector de sexo y fecha de nacimiento----------------------*/}
                         <div className="mb-2 row">
