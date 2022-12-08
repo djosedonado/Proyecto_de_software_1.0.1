@@ -3,7 +3,7 @@
 # porfavor para correr el proyecto siga los siguientes pasos.
 
 ##1: descargar el repositorio o clonar el repositorio
-
+https://github.com/djosedonado/Proyecto_de_software_1.0.1/blob/master/img/1.png
 ##2: ya descargado el repositorio instalar los modulos de npm en fronend y en el backend.
 
 ##3: para que funcione el backend correctamente neesitas instalar mysql server y ejecutar los codigos de las tablas almacenado en la carpeta juto al backend y froend.
